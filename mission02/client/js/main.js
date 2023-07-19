@@ -16,36 +16,49 @@ const visualImage = getNode(".visual img ");
 function clickImg(e) {
   const target = e.target.closest("li");
   const index = attr(target, "data-index");
-  const upToLow = data[index - 1].name.toLowerCase();
-  const color = data[index - 1].color;
-
+  const nickName = getNode(".nickName");
+  const selectedMovie = data[index - 1];
+  const { name, color, alt } = selectedMovie;
   const gradientColor = `linear-gradient(to bottom, ${color[0]}, ${color[1]})`;
-
-  setBgColor('body' , gradientColor);
+  
   if (!target) return;
 
   navItems.forEach((li) => removeClass(li, "is-active"));
   addClass(target, "is-active");
 
-  nickName.textContent = data[index - 1].name;
+  setBgColor("body", gradientColor);
+  setNameText(nickName, name);
+  setImage(visualImage, name, alt);
 
-  attr(visualImage, "src", `./assets/${upToLow}.jpeg`);
-  attr(visualImage, "alt", data[index - 1].alt);
 }
 
+function setImage(node, imageName, altPath) {
+  if (typeof node === "string") node = getNode(node);
 
+  if (!node) return;
 
-// function setImage(node) {
-//   const anchor = node.target.closest("a");
-//   const index = attr(target, "data-index");
-//   if (!anchor) return;
+  const imagePath = `./assets/${imageName.toLowerCase()}.jpeg`;
 
-//   console.log(index);
+  attr(node, "src", imagePath);
+  attr(node, "alt", altPath);
+}
 
-//   attr(visualImage ,'src', `./assets/${data[index - 1].jpeg}`)
-//   attr(visualImage ,'alt', data[index - 1].alt)
-// }
+function setNameText(node, text) {
+  if (!text || typeof text !== "string") {
+    throw new TypeError("setNameText 함수의 인수는 문자열이어야 합니다.");
+  }
 
-// function setNameText(className, text) {}
+  node.textContent = text;
+}
+
+function setBgColor(node, value) {
+  if (typeof node === "string") node = getNode(node);
+
+  if (!value || typeof value !== "string") {
+    throw new TypeError("setBgColor 함수의 인수는 문자열이어야 합니다.");
+  }
+
+  node.style.background = value;
+}
 
 nav.addEventListener("click", clickImg);
