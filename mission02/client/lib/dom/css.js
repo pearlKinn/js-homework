@@ -54,14 +54,3 @@ function getCss(node, prop) {//'font-size'.indexOf('-')
 
 // css()
 const css = (node, prop, value) => !value ? getCss(node, prop) : setCss(node, prop, value);
-
-
-function setBgColor(node, value) {
-  if (typeof node === "string") node = getNode(node);
-
-  if (!value || typeof value !== "string") {
-    throw new TypeError("setBgColor 함수의 인수는 문자열이어야 합니다.");
-  }
-
-  node.style.background = value;
-}
