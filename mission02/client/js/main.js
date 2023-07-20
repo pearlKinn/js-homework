@@ -13,7 +13,7 @@ const nav = getNode(".nav");
 const navItems = getNodes(".nav li");
 const visualImage = getNode(".visual img ");
 
-function clickImg(e) {
+function handleImg(e) {
   const target = e.target.closest("li");
   const index = attr(target, "data-index");
   const nickName = getNode(".nickName");
@@ -61,4 +61,4 @@ function setBgColor(node, value) {
   node.style.background = value;
 }
 
-nav.addEventListener("click", clickImg);
+nav.addEventListener("click", handleImg);
