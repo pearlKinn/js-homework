@@ -53,4 +53,4 @@ function setBgColor(node, value) {
 `setBgColor` 함수를 사용하면 특정 노드의 배경색을 간편하게 변경할 수 있습니다. 이를 활용하여 JavaScript를 통해 동적으로 웹 페이지의 스타일을 조작할 수 있으며, 사용자 인터랙션에 따라 동적으로 스타일을 변경하는데 유용하게 활용할 수 있습니다.
 
 ### 완성된 페이지 모습
-![](https://velog.velcdn.com/images/pearlx_x/post/8e737609-1fbe-4b9c-ae40-b6b7f8fa719e/image.gif)
+![ezgif com-video-to-gif](https://github.com/pearlKinn/js-homework/assets/83470333/92c13ce3-7a23-470e-8d03-a7009880d0c1)
