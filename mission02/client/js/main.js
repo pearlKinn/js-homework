@@ -21,7 +21,7 @@ function clickImg(e) {
   const { name, color, alt } = selectedMovie;
   const gradientColor = `linear-gradient(to bottom, ${color[0]}, ${color[1]})`;
   
-  if (!target) return;
+  if (!target || !index) return;
 
   navItems.forEach((li) => removeClass(li, "is-active"));
   addClass(target, "is-active");
